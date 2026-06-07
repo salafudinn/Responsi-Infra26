@@ -91,4 +91,9 @@ nemu typo lagi di konfigurasi variabel enviroment, jaringan, dan volume pada fil
 
 ### Solusi
 
-Melakukan koreksi pada file docker-compose.yml dengan ubah DB_HOST menjadi db, ubah password web2 menjadi student123, nambahin network - frontend pada web3, lalu menyamakan nama block volume global paling bawah menjadi db-data:
+Melakukan koreksi pada file docker-compose.yml dengan ubah DB_HOST menjadi db, 
+ubah password web2 menjadi student123, 
+nambahin network - frontend pada web3, 
+lalu menyamakan teks volume global paling bawah menjadi 
+volumes:
+  db-data:
