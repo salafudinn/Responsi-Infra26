@@ -58,11 +58,18 @@ ubah baris pertama di ketiga file Dockerfile tersebut biar g typo jadi php:8.2-a
 kontainer berhasil di jalanin tapi pas mau uji tampiln menggunakan cmd curl http://localhost:8080 selalu membalas dengan error Connection refused.
 
 ### Penyebab
-ada titik tiga ini ``` yg berada di atas sama paling bawah di file nginx.conf
+ada titik tiga ini ``` yg berada di atas sama paling bawah di file nginx.conf sama typo web11:80, web3:8080
 
 ### Solusi
 
 hapus aja titik 3 (```) nginx di atas sama bawah
+
+sama jgn lupa benerin typo di file nginx.conf jadi kayak gini 
+upstream backend {
+    server web1:80;
+    server web2:80;
+    server web3:80;
+}
 ---
 
 ## Permasalahan 5
