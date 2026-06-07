@@ -95,7 +95,7 @@ nemu typo lagi di konfigurasi variabel enviroment, jaringan, dan volume pada fil
 
 ### Solusi
 
-Melakukan koreksi pada file docker-compose.yml dengan ubah DB_HOST menjadi db, 
+Melakukan koreksi pada file docker-compose.yml dengan ubah DB_HOST: mysql menjadi DB_HOST: db,
 ubah password web2 menjadi student123, 
 nambahin network - frontend pada web3, 
 lalu menyamakan teks volume global paling bawah menjadi 
