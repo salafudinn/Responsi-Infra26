@@ -3,14 +3,17 @@
 ## Permasalahan 1
 
 ### Gejala
-Jelaskan gejala yang ditemukan.
-
+Pada saat docker compose up -d terjadi error di file docker-compose.yml
+line 5 
 ### Penyebab
-Jelaskan akar penyebab masalah.
+services
+  nginx:
 
+kurang titik 2 : di baagian service
 ### Solusi
-Jelaskan langkah perbaikan yang dilakukan.
-
+tambahin aja
+services:
+  nginx:
 ---
 
 ## Permasalahan 2
