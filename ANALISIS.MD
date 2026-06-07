@@ -70,6 +70,8 @@ upstream backend {
     server web2:80;
     server web3:80;
 }
+
+
 ---
 
 ## Permasalahan 5
