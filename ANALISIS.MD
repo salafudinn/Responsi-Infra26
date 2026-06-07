@@ -3,26 +3,83 @@
 ## Permasalahan 1
 
 ### Gejala
-Pada saat docker compose up -d terjadi error di file docker-compose.yml
-line 5 
-### Penyebab
-services
-  nginx:
 
-kurang titik 2 : di baagian service
+Muncul pesan error yaml: line 4, column 8: mapping values are not allowed in this context pas jalanin docker compose.
+
+### Penyebab
+
+services pada file docker-compose.yml kuraang titik 2 (:)
+
 ### Solusi
-tambahin aja
-services:
-  nginx:
+
+nambahin titik 2 pda services jdi services: dn juga merapihkan bris kode ny
+
 ---
 
 ## Permasalahan 2
 
 ### Gejala
-...
+
+membuat kontainer gagal tulisanya gini
+error unable to prepare context: path "/home/salaf/Responsi-Infra26/web33" not found.
 
 ### Penyebab
-...
+
+typo lagi pada context milik service web3 di file docker-compose.yml, yaitu /web33 yg harusny ./web3.
 
 ### Solusi
-...
+
+ubah aja context milik service web3 yg awalny /web33 jadi ./web3
+
+---
+
+## Permasalahan 3
+
+### Gejala
+
+build gagal dan terjadi error pesannya
+eror failed to resolve source metadata for docker.io/library/php:8.2-apach: not found.
+
+### Penyebab
+
+typo lagi di nama base image resmi pada baris pertama di dalam berkas Dockerfile milik folder web1, web2, dan web3, yg isiny
+FROM php:8.2-apach typo kurang huruf e.
+
+### Solusi
+
+ubah baris pertama di ketiga file Dockerfile tersebut biar g typo jadi php:8.2-apache.
+
+---
+
+## Permasalahan 4
+
+### Gejala
+
+kontainer berhasil di jalanin tapi pas mau uji tampiln menggunakan cmd curl http://localhost:8080 selalu membalas dengan error Connection refused.
+
+### Penyebab
+ada titik tiga ini ``` yg berada di atas sama paling bawah di file nginx.conf
+
+### Solusi
+
+hapus aja ```nginx sama ``` di atas sama bawah
+---
+
+## Permasalahan 5
+
+### Gejala
+
+Aplikasi web server cluster ga bisa terhubung ke database MySQL ga kebagian beban traffic dari Load Balancer Nginx secara merata.
+
+### Penyebab
+
+nemu typo lagi di konfigurasi variabel enviroment, jaringan, dan volume pada file docker-compose.yml:
+
+1. DB_HOST milik web1 typo mengarah ke nama mysql seharusnya db.
+2. DB_PASS milik web2 typo password database menjadi wrongpassword.
+3. Service web3 kekurangan network - frontend sehingga tidak bisa dijangkau oleh Nginx.
+4. volume global di baris paling bawah database-data gak sinkron dengan volume yang dipanggil oleh service db db-data karena typo.
+
+### Solusi
+
+Melakukan koreksi pada file docker-compose.yml dengan ubah DB_HOST menjadi db, ubah password web2 menjadi student123, nambahin network - frontend pada web3, lalu menyamakan nama block volume global paling bawah menjadi db-data:
