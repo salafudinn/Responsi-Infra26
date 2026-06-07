@@ -1,3 +1,5 @@
+# demonstrasi apli
+
 # Analisis Perbaikan
 
 ## Permasalahan 1
@@ -8,7 +10,7 @@ Muncul pesan error yaml: line 4, column 8: mapping values are not allowed in thi
 
 ### Penyebab
 
-services pada file docker-compose.yml kuraang titik 2 (:)
+services pada file docker-compose.yml kuraang titik 2 (:) menyebabkan configurasi docker-compose.yml tidaak berfungsi semua karena tidak mendeteksi configurasi dengan baik
 
 ### Solusi
 
@@ -20,12 +22,12 @@ nambahin titik 2 pda services jdi services: dn juga merapihkan bris kode ny
 
 ### Gejala
 
-membuat kontainer gagal tulisanya gini
+pas membuat kontainer gagal tulisanya gini
 error unable to prepare context: path "/home/salaf/Responsi-Infra26/web33" not found.
 
 ### Penyebab
 
-typo lagi pada context milik service web3 di file docker-compose.yml, yaitu /web33 yg harusny ./web3.
+typo lagi pada context milik service web3 di file docker-compose.yml, yaitu /web33 yg harusny ./web3. itu yg mentebaabkan path yg sudah di konfigurasikan error dan tidak terbaca
 
 ### Solusi
 
@@ -43,7 +45,7 @@ eror failed to resolve source metadata for docker.io/library/php:8.2-apach: not 
 ### Penyebab
 
 typo lagi di nama base image resmi pada baris pertama di dalam berkas Dockerfile milik folder web1, web2, dan web3, yg isiny
-FROM php:8.2-apach typo kurang huruf e.
+FROM php:8.2-apach typo kurang huruf e. alhasil tidak mendeteksi apache nya
 
 ### Solusi
 
@@ -58,7 +60,7 @@ ubah baris pertama di ketiga file Dockerfile tersebut biar g typo jadi php:8.2-a
 kontainer berhasil di jalanin tapi pas mau uji tampiln menggunakan cmd curl http://localhost:8080 selalu membalas dengan error Connection refused.
 
 ### Penyebab
-ada titik tiga ini ``` yg berada di atas sama paling bawah di file nginx.conf sama typo web11:80, web3:8080
+ada titik tiga ini ``` yg berada di atas sama paling bawah di file nginx.conf sama typo web11:80, web3:8080 menyebabkan koneksi tidak diterima
 
 ### Solusi
 
