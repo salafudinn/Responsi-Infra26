@@ -62,7 +62,7 @@ ada titik tiga ini ``` yg berada di atas sama paling bawah di file nginx.conf
 
 ### Solusi
 
-hapus aja ```nginx sama ``` di atas sama bawah
+hapus aja titik 3 (```) ```nginx di atas sama bawah
 ---
 
 ## Permasalahan 5
