@@ -1,4 +1,4 @@
-# demonstrasi aplikasi
+# demonstrasi service
 
 <img width="1280" height="720" alt="2026-06-07 12-17-39" src="https://github.com/user-attachments/assets/0748eebd-b976-4f85-a3e2-37f94620d590" />
 
